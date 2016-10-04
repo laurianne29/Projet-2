@@ -47,7 +47,7 @@ table {
 /*FIN RESET CSS*/
 
 body {
-	background: #040000;
+	background: #1E1A52;
 	background-size: cover;
 	font-family: Arial, Helvetica, sans-serif;
 	color: white;
@@ -58,7 +58,7 @@ h1 {
 }
 
 #header {
-	background: maroon;
+	background: #121033;
 	text-align: center;
 }
 
@@ -71,7 +71,7 @@ h1 {
 
 section {
 	width: 900px;
-	background-color: #290505;
+	background-color: #352E91;
 	margin: auto;
 	padding: 20px;
 	-moz-box-shadow: 1px 1px 10px 0px #cd9934;
@@ -83,13 +83,18 @@ section {
 
 .bouton
 {
-    color:#0000ff;
+    color:#777;
     font-size:24px;
     cursor:pointer;
+    text-align: center;
 }
 .bouton:hover
 {
-    text-decoration:underline;
+    text-decoration: none;
+    background: #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
 }
 .texte
 {
@@ -97,6 +102,7 @@ section {
     background:#eeeeee;
     padding:10px;
     color:#333333;
+    margin: 30px 0;
 }
 .texte:hover
 {
@@ -106,7 +112,7 @@ section {
 }
 
 footer {
-	background: maroon;
+	background: #121033;
 	padding: 20px 0;
 }
 
