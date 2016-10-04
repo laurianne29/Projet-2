@@ -53,25 +53,29 @@ body {
 	color: white;
 }
 
-h1 {
+/* h1 {
 	font-size: 1.5em;
+	float: left;
+} */
+
+#header {
+	background: darkred;
+	text-align: center;
 }
 
-header nav {
-	float: right;
+#header nav ul li {
 	display: inline-block;
 }
 
 section {
 	width: 900px;
-	height: 300px;
 	background-color: #290505;
 	border-radius: 5px;
 	margin: 100px auto;
 	padding: 20px;
 	-moz-box-shadow: 1px 1px 10px 0px #cd9934;
--webkit-box-shadow: 1px 1px 10px 0px #cd9934;
--o-box-shadow: 1px 1px 10px 0px #cd9934;
-box-shadow: 1px 1px 10px 0px #cd9934;
-filter:progid:DXImageTransform.Microsoft.Shadow(color=#cd9934, Direction=134, Strength=10);
+	-webkit-box-shadow: 1px 1px 10px 0px #cd9934;
+	-o-box-shadow: 1px 1px 10px 0px #cd9934;
+	box-shadow: 1px 1px 10px 0px #cd9934;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#cd9934, Direction=134, Strength=10);
 }
