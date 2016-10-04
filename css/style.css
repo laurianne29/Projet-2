@@ -60,4 +60,6 @@ h1 {
 section {
 	width: 900px;
 	background-color: bisque;
+	margin: 100px auto;
+	padding: 10px;
 }
