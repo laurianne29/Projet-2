@@ -1,1 +1,4 @@
-style.css
+body {
+	background: url('../img/h-p-book.jpg');
+	background-size: cover;
+}
