@@ -1,5 +1,6 @@
 window.onload = function(){
-	alert("jveu faire caca")
+	alert("OSEF")
+}
 
 function afficher_cacher(id)
 {
