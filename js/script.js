@@ -1,9 +1,5 @@
 window.onload = function(){
-	alert("ok ca marche")
-	alert("Ou non")
-	alert("bon alors c'est comment la?")
-	alert("Qui paye son grec?")
-};
+	alert("jveu faire caca")
 
 function afficher_cacher(id)
 {
