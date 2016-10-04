@@ -49,8 +49,8 @@ table {
 body {
 	background: url('../img/black-white.jpg');
 	background-size: cover;
-	font-family: Arial, Helvetica, sans-serif;
 	color: white;
+	font-family: 'Quicksand', sans-serif;
 }
 
 h1 {
@@ -81,9 +81,13 @@ section {
 	filter:progid:DXImageTransform.Microsoft.Shadow(color=#cd9934, Direction=134, Strength=10); */
 }
 
+#bouton_texte {
+	text-align: center;
+}
+
 .bouton
 {
-    color:#777;
+    color:#ddd;
     font-size:24px;
     cursor:pointer;
     text-align: center;
@@ -91,7 +95,7 @@ section {
 .bouton:hover
 {
     text-decoration: none;
-    background: #ddd;
+    background: #777;
     padding: 10px;
     border-radius: 5px;
     color: white;
