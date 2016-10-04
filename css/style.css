@@ -85,6 +85,8 @@ section {
 	filter:progid:DXImageTransform.Microsoft.Shadow(color=#cd9934, Direction=134, Strength=10); */
 }
 
+/* STYLE BOUTON */
+
 #bouton_texte {
 	text-align: center;
 }
@@ -106,6 +108,9 @@ section {
     color: white;
     transition: .5s padding ease-out;
 }
+
+/* FIN DU STYLE BOUTON */
+
 .texte
 {
     border:1px solid #333333;
@@ -121,6 +126,8 @@ section {
     color:#000000;
 }
 
+/* FOOTER */
+
 footer {
 	background: #111;
 	padding: 20px 0;
@@ -134,3 +141,5 @@ footer nav ul li {
 #footer {
 	text-align: center;
 }
+
+/* FIN DU FOOTER */
