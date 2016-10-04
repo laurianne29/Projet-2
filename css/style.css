@@ -57,6 +57,8 @@ h1 {
 	font-size: 2em;
 }
 
+/* HEADER */
+
 #header {
 	background: #111;
 	text-align: center;
@@ -68,6 +70,8 @@ h1 {
 	padding: 0 50px;
 	display: inline-block;
 }
+
+/* FIN DU HEADER */
 
 section {
 	width: 900px;
@@ -91,14 +95,16 @@ section {
     font-size:24px;
     cursor:pointer;
     text-align: center;
+    transition: .5s padding ease-out;
 }
 .bouton:hover
 {
     text-decoration: none;
     background: #777;
-    padding: 10px;
+    padding: 10px 10px 10px 100px;
     border-radius: 5px;
     color: white;
+    transition: .5s padding ease-out;
 }
 .texte
 {
