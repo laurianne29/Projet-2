@@ -143,3 +143,272 @@ footer nav ul li {
 }
 
 /* FIN DU FOOTER */
+
+/********************************************************* RADIOHEAD LOADER *****************************************************************/
+@import "compass";
+@import "compass/css3";
+
+$anitime : 5s;
+$stroke-width : 1;
+$stroke : #000;
+$fill : #fff;
+$colors : #71f5ba, #9d79ef, #f6f995, #95eef9, #f995af, #95f9b6, #f9ea95, #f995e2, #95cef9, #f9b795, #95f9c8, #f99598, #9995f9, #60f97c, #f4f960, #7a60f9, #f9be60, #fff;
+
+@mixin teeth ($deg) {
+	background: repeating-linear-gradient(
+		$deg,
+		transparent,
+		transparent 3.5vw,
+		$stroke 3.55vw,
+		$stroke calc(3.55vw + #{$stroke-width}vw),
+		transparent calc(3.6vw + #{$stroke-width}vw)
+	);
+}
+@keyframes face {
+	0%, 40%, 100%{
+		transform: rotate(0deg) scale(1);
+		@include filter(invert(0));
+	}
+	50%, 60%, 70%, 80%, 90%{
+		transform: rotate(-30deg) scale(1.5);
+		@include filter(invert(0.25));
+	}
+	45%, 55%, 65%, 75%, 85%, 95%{
+		transform: rotate(30deg) scale(1.25);
+		@include filter(invert(1));
+	}
+}
+@keyframes flash {
+	0%, 40%, 100%{
+		background-color: transparent;
+	}
+	@for $i from 1 through length($colors) {
+		#{(($i / length($colors)) * 60) + 40}% {
+			background-color: nth($colors, $i);
+		}
+	}
+}
+@keyframes upperteeth {
+	40%, 100%{
+				margin-left: #{$stroke-width * 1.5}vw;
+			@include teeth(75deg);
+	}
+	@for $i from 1 through 5 {
+		#{40 + ($i * 12) - 6}%, #{40 + ($i * 12)}% { 		
+				margin-left: 1vw;
+			background: repeating-linear-gradient(
+				85deg,
+				transparent,
+				transparent 3.5vw,
+				$stroke 3.55vw,
+				$stroke calc(3.55vw + #{$stroke-width * 3}vw),
+				transparent calc(3.6vw + #{$stroke-width * 3}vw)
+			);
+		}
+		#{40 + (($i - 1) * 12)}%, #{40 + ($i * 12) - 6}% {
+		 	margin-left: #{$stroke-width * 1.5}vw;
+			@include teeth(75deg);
+		}		
+	}
+}
+@keyframes lowerteeth {
+	40%, 100%{
+		@include teeth(-72deg);
+	}
+	@for $i from 1 through 5 {
+		#{40 + ($i * 12) - 6}%, #{40 + ($i * 12)}% { 		
+			background: repeating-linear-gradient(
+				-60deg,
+				transparent,
+				transparent 3.5vw,
+				$stroke 3.55vw,
+				$stroke calc(3.55vw + #{$stroke-width * 3}vw),
+				transparent calc(3.6vw + #{$stroke-width * 3}vw)
+			);
+		}
+		#{40 + (($i - 1) * 12)}%, #{40 + ($i * 12) - 6}% {
+			@include teeth(-72deg);
+		}			
+	}
+}
+@keyframes eyes {
+	5%, 10%, 15%{
+		border-width: #{$stroke-width}vw;
+		margin-left: calc(-4vw + #{$stroke-width}vw);
+		margin-top: 5vw;
+		height: 0;
+		width: 0;
+	}
+	25%, 30%, 35%{
+		border-width: #{$stroke-width}vw;
+		margin-left: calc(4vw - #{$stroke-width}vw);
+		margin-top: 5vw;
+		height: 0;
+		width: 0;
+	}
+	40%{
+		transform: rotate(0deg);
+	}
+	60%{
+		transform: rotate(-720deg);
+	}
+	70%{
+		transform: rotate(1000deg);
+	}
+	80%{
+		transform: rotate(-100deg);
+	}
+	88%{
+		transform: rotate(900deg);
+	}
+	95%{
+		transform: rotate(-200deg);
+	}
+	100%{
+		transform: rotate(1080deg);
+	}
+	0%, 20%, 40%, 50%, 70%, 90%{
+		border-width: #{$stroke-width}vw;
+		height: calc(10vw - #{$stroke-width}vw);
+		margin-left: 0;
+		margin-top: 0;
+		width: 0;
+	}	
+}
+
+body{
+	background-color: $fill;
+	// min-height: calc(13.25vw - #{$stroke-width}vw);
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	&:before{
+		content: '';
+		display: inline-block;
+		height: 100vh;
+		vertical-align: middle;
+		width: 1vw;
+	}
+	&:after{
+		animation: flash $anitime linear forwards infinite;
+		background-color: transparent;
+		bottom: 0;
+		content: '';
+		display: block;
+		left: 0;
+  	mix-blend-mode: multiply;
+		opacity: 0.5;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+}
+.logo{
+	animation: face $anitime linear forwards infinite;
+	display: inline-block;
+	vertical-align: middle;
+}
+.ears{
+	background: $fill;
+	border: #{$stroke-width}vw solid $stroke;
+	box-shadow: 13vw 0px 0px -#{$stroke-width}vw $fill, 13vw 0px 0px 0px $stroke;
+	border-radius: 100%;
+	display: inline-block;
+	height: 11vw;
+	margin-left: -2vw;
+	margin-top: 1.25vw;
+	position: absolute;
+	width: 11vw;
+	z-index: -1;
+	&:before, &:after{
+    border: #{$stroke-width}vw solid $stroke;
+    border-radius: 8vw;
+    content: '';
+    display: inline-block;
+    height: 10vw;
+    margin-left: -3.75vw;
+    margin-top: 1vw;
+    position: absolute;
+    width: 7vw;
+    z-index: -1;
+    transform: rotate(-30deg);	
+	}
+	&:after{
+		left: 17.25vw;
+    transform: rotate(30deg);	
+	}
+}
+.eyes{
+	border: #{$stroke-width}vw solid $stroke;
+	box-shadow: 10vw 0px 0px -#{$stroke-width}vw $fill, 10vw 0px 0px 0px $stroke;
+	border-radius: 100%;
+	display: inline-block;
+	height: calc(10vw - #{$stroke-width}vw);
+	left: 0;
+	margin-left: -#{$stroke-width/2}vw;
+	margin-top: 1vw;
+	position: absolute;
+	top: 2.25vw;
+	width: calc(10vw - #{$stroke-width}vw);
+	z-index: -1;
+	&:before, &:after{
+		animation: eyes $anitime linear forwards infinite;
+		background-color: $stroke;
+		border: #{$stroke-width}vw solid $stroke;
+		border-radius: 100%;
+		content: '';
+		display: block;
+		height: inherit;
+		left: calc(50% - #{$stroke-width}vw);
+		top: -#{$stroke-width}vw;
+		position: absolute;
+		width: 0px;
+	}
+	&:after{
+		left: calc(10vw + 50% - #{$stroke-width}vw);
+		top: -#{$stroke-width}vw;
+	}
+}
+.mouth{
+	border-top: #{$stroke-width}vw solid $stroke;
+	border-radius: 0 0 20vw 20vw;
+	left: 0;
+	height: 6.8vw;
+	overflow: hidden;
+	position: absolute;
+	top: 13.2vw;
+	width: 100%;
+	&:before, &:after{
+		border-bottom-right-radius: 40vw;
+		border-bottom-left-radius: 40vw;
+		content: '';
+		display: block;
+		height: 6.8vw;
+		position: absolute;
+		width: 100%;
+	}
+	&:before{
+		animation: upperteeth $anitime linear forwards infinite;
+		@include teeth(75deg);
+		margin-left: #{$stroke-width * 1.5}vw;
+	}
+	&:after{
+		animation: lowerteeth $anitime linear forwards infinite;
+		@include teeth(-72deg);
+		margin-left: -#{$stroke-width}vw;
+	}
+}
+.face{
+	background-color: $fill;
+	border: #{$stroke-width}vw solid $stroke;
+	border-radius: 100%;
+	display: inline-block;
+	height: 20vw;
+	margin-top: 5vw;
+	overflow: hidden;
+	position: relative;
+	width: 20vw;
+	z-index: 10;
+}
+
+/********************************************************* FIN DU RADIOHEAD LOADER *****************************************************************/
