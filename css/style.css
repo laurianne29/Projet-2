@@ -412,3 +412,342 @@ body{
 }
 
 /********************************************************* FIN DU RADIOHEAD LOADER *****************************************************************/
+
+/********************************************************* THE PRETTY CAR PAINTER *****************************************************************/
+
+// Vars 
+@bodyBgColor: #777;
+@bodyTxtColor: #fff;
+@padding: 1em;
+@pageOverlayColor: fade(black, 75%);
+@textShadowColor: transparent;
+//
+// Mixins
+.absolute-full() {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+}
+
+.swatch-shape() {
+	border-radius: 50%;
+	width: 46px;
+	height: 46px;
+	margin: 4px;
+	padding: 0;
+}
+
+.subswatches() {
+	.subswatch-1 {
+		background: lighten(@bg, 50%);
+		&.active {
+			background-image: url(http://iulian-anghel.ro/static-outside/active-black.png)!important;
+		}
+	}
+	.subswatch-2 {
+		background: lighten(@bg, 25%);
+		&.active {
+			background-image: url(http://iulian-anghel.ro/static-outside/active-black.png)!important;
+		}
+	}
+	.subswatch-3 {
+		background: lighten(@bg, 0%);
+	}
+	.subswatch-4 {
+		background: lighten(@bg, -25%);
+	}
+	.subswatch-5 {
+		background: lighten(@bg, -50%);
+	}
+}
+
+.subswatches2() {
+	.subswatch-1 {
+		background: lighten(@bg, 40%);
+		&.active {
+			background-image: url(http://iulian-anghel.ro/static-outside/active-black.png)!important;
+		}
+	}
+	.subswatch-2 {
+		background: lighten(@bg, 20%);
+		&.active {
+			background-image: url(http://iulian-anghel.ro/static-outside/active-black.png)!important;
+		}
+	}
+	.subswatch-3 {
+		background: lighten(@bg, 0%);
+	}
+	.subswatch-4 {
+		background: lighten(@bg, -20%);
+	}
+	.subswatch-5 {
+		background: lighten(@bg, -40%);
+	}
+}
+
+// framework styles
+html {
+	height: 100%;
+}
+
+body {
+	background: @bodyBgColor;
+	font-family: 'Merriweather', serif;
+	color: @bodyTxtColor;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+	transition: .3s;
+}
+
+:before,
+:after,
+div {
+	box-sizing: border-box;
+}
+
+.page-header {
+	font-size: 2.4em;
+	text-align: center;
+	z-index: 99;
+	h1 {
+		display: inline-block;
+		font-size: 58px;
+		border-bottom: 3px solid @bodyTxtColor;
+		color: lighten(@bodyTxtColor, 20%);
+		line-height: 1.1;
+		span {
+			text-shadow: 1px 1px 0 fade(black, 50%);
+		}
+	}
+}
+
+.page-content {
+	padding: 0 2em;
+}
+
+.page-footer {
+	flex-grow: 1;
+}
+
+.controls {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	text-align: center;
+	z-index: 999;
+}
+
+// challenge styles
+.card {
+	width: 72vmin;
+	height: 64vmin;
+	margin: 0 auto;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 0 0 100em fade(#222, 90%), 0 10px 40px fade(black, 40%);
+	border-radius: 3px;
+	.spacer {
+		flex-grow: 1;
+		background: white;
+		box-shadow: 0 1px 0 0 white;
+		border-top-left-radius: inherit;
+		border-top-right-radius: inherit;
+	}
+	.image-container {
+		//        display: none;
+		position: relative;
+		width: 100%;
+		height: auto;
+		>img {
+			position: relative;
+			z-index: 99;
+		}
+		img {
+			display: block;
+			width: 100%;
+		}
+		.color-name {
+			position: absolute;
+			z-index: 999;
+			color: #555;
+			width: 100%;
+			bottom: 8%;
+			text-align: center;
+		}
+		.shading-container {
+			img {
+				display: block;
+				width: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			.gradient {
+				.absolute-full;
+				background: linear-gradient(to right, rgba(60, 65, 68, 1) 0%, rgba(83, 90, 94, 1) 32%, rgba(105, 113, 119, 0.41) 50%, rgba(105, 113, 119, 0) 73%, rgba(105, 113, 119, 0.18) 100%);
+				opacity: .2;
+			}
+		}
+	}
+}
+
+.color-picker {
+	// Colors
+	@sK: #777;
+	@sRo: #ee0012;
+	@sOr: #fb8802;
+	@sGa: darken(#fedd33, 10%);
+	@sVe: lighten(#66b032, 2%);
+	@sAl: desaturate(#0247fe, 35%);
+	@sVi: desaturate(lighten(#8601af, 10%), 40%);
+	//
+	display: flex;
+	justify-content: center;
+	padding: 2em 0;
+	background: fade(#555, 20%);
+	div[class^="swatch-"],
+	div[class*=" swatch-"] {
+		.swatch-shape;
+		&:hover {
+			li {
+				opacity: 1!important;
+			}
+		}
+		position: relative;
+		>ul {
+			&:hover {
+				z-index: 999;
+			}
+			transition: .2s;
+			z-index: 99;
+			position: absolute;
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+			margin: 0;
+			padding: 0;
+			left: -4px;
+			top: -112px;
+			>li {
+				height: 0;
+				transition: opacity .3s;
+				.swatch-shape;
+				cursor: pointer;
+				box-shadow: 0 4px 10px fade(black, 20%), 0 1px 5px fade(black, 30%);
+				display: block;
+				background: pink;
+				opacity: 0;
+				position: relative;
+				cursor: pointer;
+				&:after {
+					position: absolute;
+					left: 60px;
+					border-radius: 2px;
+					background: fade(black, 70%);
+					color: white;
+					font-size: 13px;
+					content: attr(data-tooltip);
+					opacity: 0;
+					transform: translateX(-5px);
+					white-space: nowrap;
+					padding: 4px 10px 5px;
+					transition: .2s;
+					top: 14px;
+					font-family: sans-serif;
+					pointer-events: none;
+				}
+				&:hover {
+					box-shadow: 0 4px 10px fade(black, 35%);
+					&:after {
+						opacity: 1;
+						transform: translateX(0);
+					}
+				}
+				&:active {
+					box-shadow: 0 2px 3px fade(black, 35%);
+				}
+				&.centered {
+					opacity: 1;
+				}
+				&.active {
+					background-image: url(http://iulian-anghel.ro/static-outside/active-white.png);
+					background-size: 24px;
+					background-repeat: no-repeat;
+					background-position: 50% 50%;
+				}
+			}
+		}
+	}
+	.swatch-k {
+		@bg: @sK;
+		.subswatches;
+	}
+	.swatch-ro {
+		@bg: @sRo;
+		.subswatches2;
+	}
+	.swatch-or {
+		@bg: @sOr;
+		.subswatches2;
+	}
+	.swatch-ga {
+		@bg: @sGa;
+		.subswatches2;
+	}
+	.swatch-ve {
+		@bg: @sVe;
+		.subswatches2;
+	}
+	.swatch-al {
+		@bg: @sAl;
+		.subswatches2;
+	}
+	.swatch-vi {
+		@bg: @sVi;
+		.subswatches2;
+	}
+	.main-swatches {
+		display: flex;
+		width: auto;
+		margin: 0 auto;
+	}
+}
+
+.ripple {
+	position: absolute;
+	left: -300em;
+	transform: translateX(-50%) translateY(-50%) scale(.1);
+	border-radius: 50%;
+	width: 400px;
+	height: 400px;
+	z-index: -1;
+	&.scaling {
+		animation: scale 1.4s;
+	}
+}
+
+@keyframes scale {
+	0% {
+		transform: translateX(-50%) translateY(-50%) scale(.1);
+	}
+	100% {
+		transform: translateX(-50%) translateY(-50%) scale(7);
+	}
+}
+
+.hidden {
+	opacity: 0;
+	pointer-events: none;
+}
+
+/********************************************************* FIN DU PRETTY CAR PAINTER *****************************************************************/
